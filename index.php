@@ -10,9 +10,8 @@
 <body>
     <div class="box">
         <br>
-        <div class="block" style="height:20px;width:98%; background-color:#8B0000 ;margin:auto">
+        <div class="block" style="height:20px;width:98%; background-color:#8B0000 ;margin:auto"></div>
 
-        </div>
         <div class="title">
             <h1>COMP207 - Register here for a practical slot</h1>
             <h3>Register only if you know what you are doing.</h3>
@@ -24,9 +23,39 @@
             <li>Any problems? Write a message to <a href="" style=" text-decoration: none;  color: #9E2929;">weberb@cse.liv.ac.uk</a></li>
             </ul>
         </div>
-        <div class="block" style="height:20px;width:98%; background-color:#8B0000 ;margin:auto">
 
+        <div class="forms">
+        <div class="form">
+            <label for="name">First Name</label><br>
+            <input type="text" name="name">
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname">
+            <label for="sid">SID</label>
+            <input type="text"name="sid">
+            <label for="email">Email Address</label>
+            <input type="text" name="email">
         </div>
+        <br>
+        <br>
+        <div class="select">
+                <label for="options"><b>Select the practical slot:</b></label>
+                <select id="options">
+                    <option value="monday">Monday 15:00-17:00</option>
+                    <option value="tuesday">Tuesday 14:00-16:00</option>
+                    <option value="thursday">Thursday 11:00-13:00</option>
+                    <option value="friday">Friday 10:00-12:00</option>
+                </select>
+        </div>
+
+        <div>
+        <br>
+            <input type="submit" value="Register"/>
+            <input type="submit" value="Clear"/>
+        </div>
+        </div>
+        <br>
+
+        <div class="block" style="height:20px;width:98%; background-color:#8B0000 ;margin:auto"></div>
         <br>
     
     </div>
