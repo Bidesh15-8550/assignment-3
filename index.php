@@ -24,20 +24,20 @@
             </ul>
         </div>
 
-        <div class="forms">
+        
         <div class="form">
             <label for="name">First Name</label><br>
-            <input type="text" name="name">
+            <input type="text" name="name" required>
             <label for="lname">Last Name</label>
-            <input type="text" name="lname">
+            <input type="text" name="lname" required>
             <label for="sid">SID</label>
-            <input type="text"name="sid">
+            <input type="text"name="sid" required>
             <label for="email">Email Address</label>
-            <input type="text" name="email">
-        </div>
+            <input type="email" name="email" required>
+       
         <br>
         <br>
-        <div class="select">
+       
                 <label for="options"><b>Select the practical slot:</b></label>
                 <select id="options">
                     <option value="monday">Monday 15:00-17:00</option>
@@ -45,13 +45,14 @@
                     <option value="thursday">Thursday 11:00-13:00</option>
                     <option value="friday">Friday 10:00-12:00</option>
                 </select>
-        </div>
+      
 
-        <div>
-        <br>
-            <input type="submit" value="Register"/>
-            <input type="submit" value="Clear"/>
-        </div>
+  
+                  <br>
+                  <br>
+                  <input type="submit" value="Register"/>
+                  <input type="submit" value="Clear"/>
+     
         </div>
         <br>
 
