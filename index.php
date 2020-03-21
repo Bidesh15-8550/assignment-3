@@ -36,6 +36,7 @@
             <input type="email" id="email" name="email">
             <br>
             <br>
+            <br>
 
             <label for="options"><b>Select the practical slot:</b></label>
                 <select id="options">
