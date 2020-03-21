@@ -25,35 +25,40 @@
         </div>
 
         
-        <div class="form">
-            <label for="name">First Name</label><br>
-            <input type="text" name="name" required>
-            <label for="lname">Last Name</label>
-            <input type="text" name="lname" required>
-            <label for="sid">SID</label>
-            <input type="text"name="sid" required>
-            <label for="email">Email Address</label>
-            <input type="email" name="email" required>
-       
-        <br>
-        <br>
-       
-                <label for="options"><b>Select the practical slot:</b></label>
+        <form style="margin: auto;width: 90%;margin-left: 40px;">
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname">
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname">
+            <label for="sid">SID:</label>
+            <input type="text" id="sid" name="sid">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <br>
+            <br>
+
+            <label for="options"><b>Select the practical slot:</b></label>
                 <select id="options">
                     <option value="monday">Monday 15:00-17:00</option>
                     <option value="tuesday">Tuesday 14:00-16:00</option>
                     <option value="thursday">Thursday 11:00-13:00</option>
                     <option value="friday">Friday 10:00-12:00</option>
                 </select>
+                <br>
+                <br>
+
+            <input type="submit" value="Register"/>
+            <input type="submit" value="Clear"/>
+        </form>
+        
+       
+                
       
 
   
-                  <br>
-                  <br>
-                  <input type="submit" value="Register"/>
-                  <input type="submit" value="Clear"/>
+                  
      
-        </div>
+        
         <br>
 
         <div class="block" style="height:20px;width:98%; background-color:#8B0000 ;margin:auto"></div>
