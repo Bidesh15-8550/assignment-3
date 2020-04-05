@@ -3,61 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/calendar.png" type="image/x-icon">
     <title>Assignment 3</title>
 </head>
 <body>
-<div class="box">
-    <br>
-    <div class="block" style="height:20px;width:98%; background-color:#8B0000 ;margin:auto"></div>
-    <div class="title">
-        <h1>COMP207 - Register here for a practical slot</h1>
-        <h3>Register only if you know what you are doing.</h3>
-        <ul>
-            <li>Please enter <b>all</b> information and select your desired day. Please enter a correct 'SID' number!</li>
-            <li>Please check the number of available seats before submitting.</li>
-            <li>Register only to on slot.</li>
-            <li>Any problems? Write a message to <a href="" style=" text-decoration: none;  color: #9E2929;">weberb@cse.liv.ac.uk</a></li>
-        </ul>
-    </div>
-    <form style="margin: auto;width: 90%;margin-left: 40px;">
-        <div class="full">
-            <div class="one">
-                <label for="fname">First name:</label><br>
-                <input type="text" id="fname" name="fname">
+
+
+<?php session_start();
+
+  // print_r($_SESSION);
+  // $selectedSlot = $_SESSION['oslot'];
+  // echo 'sdasdsa'.$selectedSlot;
+?>
+
+<section class="testimonial" id="testimonial">
+    <div class="container">
+        <div class="row ">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 bg-primary text-white text-center ">
+                <div class=" ">
+                    <div class="card-body">
+                        <h1>COMP207 - Register here for a practical slot</h1>
+                        <h3>Register only if you know what you are doing.</h3>
+                        <ul class="text-justify">
+                            <li>Please enter <b>all</b> information and select your desired day. Please enter a correct 'SID' number!</li>
+                            <li>Please check the number of available seats before submitting.</li>
+                            <li>Register only to on slot.</li>
+                            <li>Any problems? Write a message to <a href="" style=" text-decoration: none;  color: #9E2929;">weberb@cse.liv.ac.uk</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="one">
-                <label for="lname">Last name:</label><br>
-                <input type="text" id="lname" name="lname">
+            <div class="col-md-2"></div>
+            <div class="col-md-2"></div>
+            <div class="col-md-8 py-5 border">
+                <h4 class="pb-4">Please fill with your details</h4>
+                <form action="dbControls/addStudents.php" method="post">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <input id="fName" name="fName" placeholder="First Name" class="form-control" type="text" value="<?php echo (isset($_SESSION['ofName']) ? $_SESSION['ofName'] : '' ) ?>"  required>
+                            <?php
+                            if(isset($_SESSION['fName']))
+                              alerts();
+                            ?>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input id="lName" name="lName" placeholder="Last Name" class="form-control" type="text" value="<?php echo (isset($_SESSION['olName']) ? $_SESSION['olName'] : '' ) ?>"  required>
+                            <?php
+                              if(isset($_SESSION['lName']))
+                                alerts();
+                             ?>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email" value="<?php echo (isset($_SESSION['oemail']) ? $_SESSION['oemail'] : '' ) ?>" required>
+                            <?php
+                              if(isset($_SESSION['email']))
+                                alerts();
+                             ?>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="number" name="SID" class="form-control" id="inputSID" placeholder="SID" value="<?php echo (isset($_SESSION['oSID']) ? $_SESSION['oSID'] : '' ) ?>" required>
+                            <?php
+                              if(isset($_SESSION['SID']))
+                                alerts();
+                             ?>
+                            <?php
+                              if(isset($_SESSION['invalidSID']))
+                              {?>
+                              <p style="color:red">
+                                Please provide valid SID
+                              </p>
+                            <?php } ?>
+                        </div>
+                    </div>
+
+                      <?php
+                      require "dbControls/seatCount.php";
+                      ?>
+
+                    <div class="form-row">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                    </div>
+                </form>
             </div>
-            <div class="one">
-                <label for="sid">SID:</label><br>
-                <input type="text" id="sid" name="sid">
-            </div>
-            <div class="one">
-                <label for="email">Email:</label><br>
-                <input type="email" id="email" name="email">
-            </div>
-            <br>
         </div>
-        <br>
-        <br>
-        <label for="options"><b>Select the practical slot:</b></label>
-        <select id="options">
-            <option value="monday">Monday 15:00-17:00</option>
-            <option value="tuesday">Tuesday 14:00-16:00</option>
-            <option value="thursday">Thursday 11:00-13:00</option>
-            <option value="friday">Friday 10:00-12:00</option>
-        </select>
-        <br>
-        <br>
-        <input type="submit" value="Register"/>
-        <input type="submit" value="Clear"/>
-    </form>
-    <br>
-    <div class="block" style="height:20px;width:98%; background-color:#8B0000 ;margin:auto"></div>
-    <br>
-</div>
+    </div>
+</section>
+
+
+<script>
+  document.getElementById("inputState").value=<?php echo (isset($_SESSION['oslot']) ? $_SESSION['oslot'] : 0); ?>;
+</script>
+
+<?php
+  function alerts()
+  {?>
+  <p style="color:red">
+    Please fill this field
+  </p>
+<?php }
+  session_destroy(); ?>
+
 </body>
 </html>
